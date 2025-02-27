@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <assert.h>
 
 /** Code Original :
 int main() {
@@ -37,10 +36,10 @@ int main() {
     // On remplace scanf par fgets et strol pour récupérer la valeur
     printf("Entrez la longueur de votre chaine de copie : ");
     fgets(t2, 4, stdin);
-    long n = strtol(t2, &endPtr, 10);
+    long const n = strtol(t2, &endPtr, 10);
 
     if (n < (int)(strlen(t1) + 1) || n >= 255) {  
-        fprintf(stderr, "Taille n incorrecte : doit etre >= %lu et < 255\n", strlen(t1) + 1);
+        fprintf(stderr, "Taille n incorrecte : doit etre >= %llu et < 255\n", strlen(t1) + 1);
         exit(EXIT_FAILURE);
     }
 
