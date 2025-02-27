@@ -30,16 +30,16 @@ int main() {
     char *p = NULL, *q = NULL, *r = NULL;
 
     // On remplace scanf par getc pour améliorer la sécurité et gérer les espaces
-    printf("Entrez votre mot : ");
+    printf("Entrez votre mot : \n");
     fgets(t1, 255, stdin);
 
     // On remplace scanf par fgets et strol pour récupérer la valeur
-    printf("Entrez la longueur de votre chaine de copie : ");
+    printf("Entrez la longueur de votre chaine de copie (null byte inclus) : \n");
     fgets(t2, 4, stdin);
     long const n = strtol(t2, &endPtr, 10);
 
-    if (n < (int)(strlen(t1) + 1) || n >= 255) {  
-        fprintf(stderr, "Taille n incorrecte : doit etre >= %llu et < 255\n", strlen(t1) + 1);
+    if (n <= 0 || n >= 255) {
+        fprintf(stderr, "Taille n incorrecte : doit etre > 0 et < 255\n");
         exit(EXIT_FAILURE);
     }
 
